@@ -4,6 +4,7 @@ import { IFetchingErrorAlert } from "../../../../components/Error/interface";
 import { getUser } from "../../data";
 import { processApiResponse } from "../../../../services/api/response";
 import { handleFetchingError } from "../../../../utilities/global";
+import IPost from "../../../../services/entities/IPost";
 
 export default function useProfileHooks(id: number){
     const [user, setUser] = useState<Partial<IUser>>();
@@ -32,11 +33,11 @@ export default function useProfileHooks(id: number){
     async function fetchPosts() {
         try {
             setLoader(true);
-            setUsers([]);
-            const userList = await getAllUsers();
+            setPosts([]);
+            const userList = await getAllPosts();
             const result = processApiResponse(userList, 'fetchAll', 'users');
 
-            if (!result.isError) setUsers(result.data as Array<IUser>);
+            if (!result.isError) setPosts(result.data as Array<IPost>);
             
         } catch (error: any) {
             handleFetchingError(error, setFetchingError);
@@ -46,10 +47,11 @@ export default function useProfileHooks(id: number){
     }
     useEffect(() => {
         fetchUser();
-    }, [])
+        fetchPosts();
+    }, []);
 
 
     return {
-        loader, user, fetchingError
+        loader, user, fetchingError, posts
     }
 }

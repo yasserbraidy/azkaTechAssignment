@@ -1,9 +1,9 @@
 import Api from "../api";
 import IApiResponse from "../api/response";
-import { BASE_URL, TOKEN,LOGIN_API, JSON_PLACEHOLDER } from "../api/utils";
+import { BASE_URL, TOKEN,LOGIN_API } from "../api/utils";
 import * as endpoints from "../api/utils";
 
-const api = new Api(JSON_PLACEHOLDER, TOKEN);
+const api = new Api(BASE_URL, TOKEN);
 
 
 
@@ -28,6 +28,20 @@ export async function GUser(id: number): Promise<IApiResponse>  {
 //     const response = await api.del(endpoints.DELETE_SOCIAL_MEDIA(id));
 //     return response;
 // }
+
+//Posts
+export async function GAPosts(): Promise<IApiResponse>  {
+    const response = await api.get(endpoints.GET_ALL_POSTS);
+    return response;
+}
+export async function GPosts(userId: number): Promise<IApiResponse>  {
+    const response = await api.get(endpoints.GET_POSTS_BY_USER_ID(userId));
+    return response;
+}
+export async function GComment(postId: number): Promise<IApiResponse>  {
+    const response = await api.get(endpoints.GET_COMMENTS_BY_POST_ID(postId));
+    return response;
+}
 
 //auth
 export async function login(username: string, password: string) {
