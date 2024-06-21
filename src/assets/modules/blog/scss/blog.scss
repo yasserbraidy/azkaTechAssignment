@@ -1,0 +1,15 @@
+// Configuration
+@import "../../../scss/bootstrap/functions";
+// Variables
+@import "../../../scss/design-system/variable";
+@import "../../../scss/design-system/variables/index";
+@import "../../../scss/bootstrap/variables";
+@import "../../../scss/bootstrap/mixins";
+
+@import "../../../scss/design-system/helper/functions";
+@import "../../../scss/design-system/helper/mixins";
+@import "../../../scss/design-system/helper/reboot";
+
+//Chat scss
+@import "./components/blog";
+@import "./components/card";
