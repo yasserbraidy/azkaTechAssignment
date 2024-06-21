@@ -2,7 +2,6 @@ import { Col, Table, Card, Row, Image } from "react-bootstrap";
 import useAllUsersHooks from "./hooks";
 import Loader3 from "../../../components/Loader";
 import ErrorAlert from "../../../components/Error";
-import { useState } from "react";
 import Image1 from "../../../assets/images/table/5.png";
 import { Link } from "react-router-dom";
 export default function Users() {
@@ -45,7 +44,7 @@ export default function Users() {
                                         />
                                         <div className="media-support-info">
                                           <h6 className="mb-0">
-                                            <Link to={`/users/${item.id}`}>{item.name}</Link>
+                                            <Link to={`/users/view/${item.id}`}>{item.name}</Link>
                                           </h6>
                                           <p className="mb-0">
                                             @{item.username}
@@ -59,7 +58,7 @@ export default function Users() {
                                       {item.website}
                                     </td>
                                     <td className="text-dark">
-                                      {item.company.name}
+                                      {item.company?.name}
                                     </td>
                                   </tr>
                                 );
@@ -71,7 +70,7 @@ export default function Users() {
                     </Card>
                 </Col>
             </Row>)
-            }
+        }
       </>
     );
 }

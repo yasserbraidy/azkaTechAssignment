@@ -30,7 +30,7 @@ export default function useAllUsersHooks() {
 
     useEffect(() => {
         fetchUsers();
-        setTimeout(()=> showSweetAlert("Info", "If you want to observe how errors are handled when fetching users, you can simulate this by disconnecting from the internet.", "info"), 3000)
+        // setTimeout(()=> showSweetAlert("Info", "If you want to observe how errors are handled when fetching users, you can simulate this by disconnecting from the internet.", "info"), 3000)
     }, [])
 
 
