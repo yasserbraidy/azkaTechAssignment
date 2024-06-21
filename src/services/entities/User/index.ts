@@ -14,4 +14,11 @@ export default interface IUser extends BaseEntity {
             lng: string;
         }
     };
+    phone: string;
+    website: string;
+    company: {
+        name: string;
+        catchPhrase: string;
+        bs: string;
+    };
 }

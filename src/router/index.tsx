@@ -6,11 +6,14 @@ import testRoutes from "./test";
 import authRoutes from "./auth";
 import errorsRoutes from "./errors";
 import TestPage from "../pages/Test";
+import usersRoutes from "./users";
 
 const Home = lazy(() => import("../pages/Home"));
 
   const protectedRoutes = [
 
+    //Users
+    ...usersRoutes,
     //Test
     ...testRoutes,
   ];

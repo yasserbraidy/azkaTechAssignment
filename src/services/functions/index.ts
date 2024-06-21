@@ -1,13 +1,13 @@
 import Api from "../api";
 import IApiResponse from "../api/response";
-import { BASE_URL, TOKEN,LOGIN_API } from "../api/utils";
+import { BASE_URL, TOKEN,LOGIN_API, JSON_PLACEHOLDER } from "../api/utils";
 import * as endpoints from "../api/utils";
 
-const api = new Api(BASE_URL, TOKEN);
+const api = new Api(JSON_PLACEHOLDER, TOKEN);
 
 
 
-//SocialMedia
+//Users
 // export async function CSocialMedia(body: Partial<ISocialMedia>): Promise<IApiResponse> {
 //     const response = await api.post( endpoints.CREATE_SOCIAL_MEDIA, body);
 //     return response;
@@ -16,14 +16,14 @@ const api = new Api(BASE_URL, TOKEN);
 //     const response = await api.patch( endpoints.EDIT_SOCIAL_MEDIA(id), body);
 //     return response;
 // }
-// export async function GASocialMedias(): Promise<IApiResponse>  {
-//     const response = await api.get(endpoints.GET_ALL_SOCIAL_MEDIAS);
-//     return response;
-// }
-// export async function GSocialMedia(id: string | number): Promise<IApiResponse>  {
-//     const response = await api.get(endpoints.GET_SOCIAL_MEDIA(id));
-//     return response;
-// }
+export async function GAUsers(): Promise<IApiResponse>  {
+    const response = await api.get(endpoints.GET_ALL_USERS);
+    return response;
+}
+export async function GUser(id: number): Promise<IApiResponse>  {
+    const response = await api.get(endpoints.GET_USER(id));
+    return response;
+}
 // export async function DSocialMedia(id: string | number): Promise<IApiResponse>  {
 //     const response = await api.del(endpoints.DELETE_SOCIAL_MEDIA(id));
 //     return response;
