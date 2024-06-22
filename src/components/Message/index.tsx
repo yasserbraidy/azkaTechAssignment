@@ -12,12 +12,13 @@ export default function Message() {
         <>
             <Card>
                 <Card.Header>
-                    <div className="header-title">
-                    <h4 className="card-title">Message</h4>
+                    <div className="header-title d-flex justify-content-between">
+                        <h4 className="card-title">Message</h4>
+                        <span>
+                            {icons.write}
+                        </span>
                     </div>
-                    <span>
-                        {icons.write}
-                    </span>
+                   
                 </Card.Header>
                 <Card.Body>
                     <div className="nav">
