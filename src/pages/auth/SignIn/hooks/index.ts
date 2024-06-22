@@ -7,8 +7,8 @@ import { setCredentials } from "../../../../store/auth/actions";
 import useProtected from "../../../../router/protected/functions";
 
 export function useSignInHooks() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("admin@email.com");
+    const [password, setPassword] = useState("123");
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [isPasswordValid, setIsPasswordValid] = useState(true);
     const appName = useSelector(app_name);
