@@ -1,11 +1,9 @@
-import React, { lazy } from "react";
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./protected";
 import { Navigate } from "react-router-dom";
-import testRoutes from "./test";
 import authRoutes from "./auth";
 import errorsRoutes from "./errors";
-import TestPage from "../pages/Test";
 import usersRoutes from "./users";
 import announcementRoutes from "./Announecement";
 
@@ -18,9 +16,6 @@ const Home = lazy(() => import("../pages/Home"));
 
     //Announcement
     ...announcementRoutes,
-
-    //Test
-    ...testRoutes,
   ];
 
 const routesConfig = createBrowserRouter(
@@ -37,15 +32,6 @@ const routesConfig = createBrowserRouter(
             element: <ProtectedRoute element={route.element} />,
           };
         }),
-        {
-          element: (
-            <ProtectedRoute
-              element={<TestPage />}
-              // requiredPermissions={["view company"]}
-            />
-          ),
-          path: "test",
-        },
       ],
     },
 

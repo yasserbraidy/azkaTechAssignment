@@ -44,7 +44,7 @@ const Home = memo((props) => {
             <div className="d-flex justify-content-between align-items-center flex-wrap mb-4 gap-3">
                 <div className="d-flex flex-column">
                     <h3>Quick Insights</h3>
-                    <p className="text-primary mb-0">Financial Dashboard</p>
+                    <p className="text-primary mb-0">Dashboard</p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center rounded flex-wrap gap-3">
                     <div className="d-flex justify-content-between align-items-center">

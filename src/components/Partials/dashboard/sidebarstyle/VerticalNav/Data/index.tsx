@@ -48,28 +48,7 @@ const announcementsMenu: AccordionDTO = {
   ],
 };
 
-
-const testMenu: AccordionDTO = {
-  name: "testMenu",
-  title: "Test",
-  eventKey: "testMenu",
-  tooltip: "test",
-  leftIcon: icons.y,
-  requiredPermissions: [],
-
-  items: [
-    {
-      title: "Test",
-      link: "test",
-      overlayTriggerTitle: "T",
-      tooltip: "Test",
-      requiredPermissions: [],
-    },
-  ],
-};
-
 export const menuData: MenuData = {
   users: usersMenu,
   Announcements: announcementsMenu,
-  test: testMenu,
 };

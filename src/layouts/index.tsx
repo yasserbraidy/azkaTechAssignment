@@ -1,16 +1,13 @@
 import { memo, Suspense } from "react";
 import { useLocation } from "react-router-dom";
-// import { ShepherdTour } from "react-shepherd";
 import { useSelector } from "react-redux";
-import * as SettingSelector from "../../store/setting/selectors";
-// import newSteps, { tourOptions } from "./Default/Steps";
-// import Tour from "./Default/Tour";
+import * as SettingSelector from "../store/setting/selectors";
 import { Outlet } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import HeaderPro from "../../components/Partials/headerstyle";
-import SubHeader from "../../components/Partials/dashboard/headerstyle/SubHeader";
-import Sidebar from "../../components/Partials/dashboard/sidebarstyle";
-import Footer from "../../components/Partials/dashboard/footerstyle";
+import HeaderPro from "../components/Partials/headerstyle";
+import SubHeader from "../components/Partials/dashboard/headerstyle/SubHeader";
+import Sidebar from "../components/Partials/dashboard/sidebarstyle";
+import Footer from "../components/Partials/dashboard/footerstyle";
 
 const Layout = memo((props) => {
   const location = useLocation();
@@ -52,7 +49,6 @@ const Layout = memo((props) => {
 
         <Footer />
       </main>
-
     </>
   );
 });

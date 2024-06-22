@@ -1,4 +1,4 @@
-import IApiResponse from "./response";
+import IApiResponse from "../response/interface";
 import IApi from "./interface";
 
 export default class Api implements IApi {

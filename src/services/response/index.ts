@@ -1,21 +1,5 @@
-import { BadRequestError, ForbiddenError, NotFoundError, ServerError, UnauthorizedError } from "../../entities/Error";
-
-export default interface IApiResponse {
-    status? : number,
-
-    statusText ?: string,
-
-    data?: any
-    
-    message?: string,
-}
-
-interface ApiResponseResult<T> {
-    data: T | null;
-    isError: boolean;
-    errorMessage?: string;
-    status?: number;
-}
+import { BadRequestError, ForbiddenError, NotFoundError, ServerError, UnauthorizedError } from "../entities/Error";
+import IApiResponse, { ApiResponseResult } from "./interface";
 
 export function processApiResponse<T>(
     response: IApiResponse,

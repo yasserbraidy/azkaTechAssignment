@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import IUser from "../../../../services/entities/User";
 import { IFetchingErrorAlert } from "../../../../components/Error/interface";
-import { getAllPosts, getPostsByUserId, getUser } from "../../data";
-import { processApiResponse } from "../../../../services/api/response";
+import { processApiResponse } from "../../../../services/response";
 import { handleFetchingError } from "../../../../utilities/global";
 import IPost from "../../../../services/entities/IPost";
+import { getPostsByUserId, getUser } from "../../../../services/apiFunctions";
 
 export default function useProfileHooks(id: number){
     const [user, setUser] = useState<Partial<IUser>>();

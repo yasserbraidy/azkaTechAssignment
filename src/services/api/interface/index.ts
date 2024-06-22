@@ -1,4 +1,4 @@
-import IApiResponse from "../response";
+import IApiResponse from "../../response/interface";
 
 export default interface IApi {
     get(endPoint: string, headers?: {}): Promise<IApiResponse>;

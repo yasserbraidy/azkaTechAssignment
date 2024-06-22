@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { IFetchingErrorAlert } from "../../../../components/Error/interface";
 import IUser from "../../../../services/entities/User";
-import { getAllUsers } from "../../data";
-import { processApiResponse } from "../../../../services/api/response";
-import { handleFetchingError, showSweetAlert } from "../../../../utilities/global";
+import { processApiResponse } from "../../../../services/response";
+import { handleFetchingError } from "../../../../utilities/global";
+import { getAllUsers } from "../../../../services/apiFunctions";
 
 export default function useAllUsersHooks() {
     const [users, setUsers] = useState<Array<IUser>>([]);
