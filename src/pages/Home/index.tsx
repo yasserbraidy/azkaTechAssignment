@@ -38,17 +38,17 @@ const Home = memo((props) => {
                     <HomeHeader />
 
                     <Row>
-                        <Impressions />
+                        <Impressions impressions={totalImpressions}/>
 
                         <Col lg="3" md="6">
                             <Row>
-                            <PostCountCard />
-                            <CommentCountCard />
+                                <PostCountCard count= {totalPosts} />
+                                <CommentCountCard count={totalComments} />
                             </Row>
                         </Col>
-                        <UsersCard />
+                        <UsersCard count={totalUsers} />
                         <CommentsChart />
-                        <UserFilterTable />
+                        <UserFilterTable filters={userPostCounts} />
                     </Row>
                 </>
             )}

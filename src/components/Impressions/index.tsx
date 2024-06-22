@@ -5,7 +5,10 @@ import CountUp from "react-countup";
 import { getVariableColor } from "../../utilities/root-var";
 import { Link } from "react-router-dom";
 
-export default function Impressions() {
+interface IImpressions{
+    impressions: number;
+}
+export default function Impressions(props: IImpressions) {
     const colors = [getVariableColor().primary, getVariableColor().info];
 
     const chart1 = {
@@ -95,7 +98,6 @@ export default function Impressions() {
         ],
     };
 
-    const impressionsCount: number = 199556;
     return (
         <>
             <Col lg="3" md="6">
@@ -114,7 +116,7 @@ export default function Impressions() {
                             <h2 className="counter">
                             <CountUp
                                 start={0}
-                                end={impressionsCount}
+                                end={props.impressions}
                                 duration={10}
                                 useEasing={true}
                                 separator=","

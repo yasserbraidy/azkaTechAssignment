@@ -3,4 +3,5 @@ export default interface IUserPostCount {
     userName?: string;
     postCount?: number;
     commentCount?: number;
+    username?: string;
 }

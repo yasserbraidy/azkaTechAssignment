@@ -63,6 +63,7 @@ export default function useDashboardHooks() {
                 return {
                     userId: user.id,
                     userName: user.name,
+                    username:user.username,
                     postCount: userPosts.length,
                     commentCount: userComments.length,
                 };

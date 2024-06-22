@@ -2,8 +2,10 @@ import { Card } from "react-bootstrap";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
 
-export default function CommentCountCard() {
-    const commentsCount = 624;
+interface ICommentCountCard {
+    count: number;
+}
+export default function CommentCountCard(props: ICommentCountCard) {
     return (
         <>
             <div className="col-12">
@@ -19,7 +21,7 @@ export default function CommentCountCard() {
                         </Link>
                         </div>
                         <h2 className="counter">
-                        <CountUp start={0} end={commentsCount} duration={10} useEasing={true} />
+                        <CountUp start={0} end={props.count} duration={10} useEasing={true} />
                         </h2>
                         <small>comments this month</small>
                     </Card.Body>

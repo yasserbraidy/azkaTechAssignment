@@ -5,8 +5,11 @@ import { Card } from "react-bootstrap";
 import { Tab } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { icons } from "../Icons";
-
-export default function UserFilterTable() {
+import IUserPostCount from "../../services/entities/UserPostCount";
+interface IUserFilterTable {
+  filters: IUserPostCount[];
+}
+export default function UserFilterTable(props: IUserFilterTable) {
     return (
         <>
             <Col lg="6" md="12">
@@ -59,90 +62,22 @@ export default function UserFilterTable() {
                             role="grid"
                             >
                             <tbody>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,298</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">ufsoishqbw</td>
-                                <td className="text-dark">7 Days Ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success ">
-                                    Processed
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,032</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">fescijfgbb</td>
-                                <td className="text-dark">23 Days </td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Processed
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$1,514</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">eihghndltk</td>
-                                <td className="text-dark">1 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Processed
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$1,425</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">bvihnfpdfq</td>
-                                <td className="text-dark">2 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Processed
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,838</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">afrtmvdyjp</td>
-                                <td className="text-dark">2 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Processed
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,613</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">jterqcvjxz</td>
-                                <td className="text-dark">5 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Processed
-                                    </span>
-                                </td>
-                                </tr>
+                                {props.filters.slice(0, 7).map((userPostCount, index) => (
+                                    <tr key={index}>
+                                        <td>
+                                            <div className="d-flex align-items-center">
+                                                <h6 className="mb-0">{userPostCount.postCount} Posts</h6>
+                                            </div>
+                                        </td>
+                                        <td className="text-primary">{userPostCount.userName}</td>
+                                        <td className="text-dark">@{userPostCount.username}</td>
+                                        <td className="text-end">
+                                            <span className="badge rounded-pill bg-primary">
+                                            user
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                             </Table>
                         </div>
@@ -160,90 +95,22 @@ export default function UserFilterTable() {
                             role="grid"
                             >
                             <tbody>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,866</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">odqethdqye</td>
-                                <td className="text-dark">3 Days Ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-info ">
-                                    Process
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$1,637</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">nmngvsosnh</td>
-                                <td className="text-dark">22 Days Ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Refunded
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,922</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">uikgtphcpo</td>
-                                <td className="text-dark">1 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Refunded
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,563</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">cieqrdyqkp</td>
-                                <td className="text-dark">2 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-info">
-                                    Process
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,334</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">wmdvzpfavx</td>
-                                <td className="text-dark">3 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-success">
-                                    Refunded
-                                    </span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <div className="d-flex align-items-center">
-                                    <h6 className="mb-0">$2,632</h6>
-                                    </div>
-                                </td>
-                                <td className="text-primary">jplpprjzbr</td>
-                                <td className="text-dark">5 month ago</td>
-                                <td className="text-end">
-                                    <span className="badge rounded-pill bg-danger">
-                                    Failed
-                                    </span>
-                                </td>
-                                </tr>
+                                {props.filters.sort((a, b) => (a.userName ?? "").localeCompare(b.userName ?? "")).slice(0, 7).map((userPostCount, index) => (
+                                    <tr key={index}>
+                                        <td>
+                                            <div className="d-flex align-items-center">
+                                                <h6 className="mb-0">{userPostCount.commentCount} Comments</h6>
+                                            </div>
+                                        </td>
+                                        <td className="text-primary">{userPostCount.userName}</td>
+                                        <td className="text-dark">@{userPostCount.username}</td>
+                                        <td className="text-end">
+                                            <span className="badge rounded-pill bg-primary">
+                                            user
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                             </Table>
                         </div>

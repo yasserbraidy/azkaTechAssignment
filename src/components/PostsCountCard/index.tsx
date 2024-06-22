@@ -2,8 +2,10 @@ import { Card } from "react-bootstrap";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
 
-export default function PostCountCard() {
-    const postsCount = 251;
+interface IPostCountCard{
+    count: number;
+}
+export default function PostCountCard(props: IPostCountCard) {
 
     return (
         <>
@@ -22,7 +24,7 @@ export default function PostCountCard() {
                     <h2 className="counter">
                     <CountUp
                         start={0}
-                        end={postsCount}
+                        end={props.count}
                         duration={10}
                         useEasing={true}
                         separator=","
