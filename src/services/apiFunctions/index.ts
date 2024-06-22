@@ -1,5 +1,5 @@
 import Api from "../api";
-import { BASE_URL, TOKEN,LOGIN_API } from "../endpoints";
+import { BASE_URL, TOKEN } from "../endpoints";
 import * as endpoints from "../endpoints";
 import IApiResponse from "../response/interface";
 
@@ -49,13 +49,23 @@ export async function getCommentsByPostId(postId: number): Promise<IApiResponse>
     } as IApiResponse;
 }
 
-//auth
-export async function login(username: string, password: string) {
-    // Creating a new instance of Api without passing the token
-    const apiWithoutToken = new Api(LOGIN_API, '');
-    
-    const response = await apiWithoutToken.post(endpoints.LOGIN, { username, password });
-    return response;
+//Comments
+export async function getAllComments(): Promise<IApiResponse>  {
+    const response = await api.get(endpoints.GET_ALL_COMMENTS);
+    return {
+        status: response.status,
+        data: response.data,
+        message: response.data.message,
+    } as IApiResponse;
 }
+
+//auth
+// export async function login(username: string, password: string) {
+//     // Creating a new instance of Api without passing the token
+//     const apiWithoutToken = new Api(LOGIN_API, '');
+    
+//     const response = await apiWithoutToken.post(endpoints.LOGIN, { username, password });
+//     return response;
+// }
 
 
