@@ -10,17 +10,18 @@ import img7 from "../../assets/modules/social/images/newsfeed/05.png";
 import img8 from "../../assets/modules/social/images/avatar/23.png";
 import img9 from "../../assets/modules/social/images/avatar/26.png";
 import img10 from "../../assets/modules/social/images/newsfeed/07.png";
+import { icons } from "../Icons";
 
 export default function Activity() {
     return (
       <>
         <Card>
-          <Card.Header className="pb-3">
+          <Card.Header className="pb-3 d-flex justify-content-between">
             <div className="header-title">
               <h4 className="card-title">Activity</h4>
             </div>
             <Link
-              to="/"
+              to=""
               onClick={(e: any) => e.preventDefault()}
               className="text-body"
             >
@@ -42,7 +43,7 @@ export default function Activity() {
             </div>
             <h5 className="mb-4">New</h5>
             <div className="iq-social-user-details">
-              <div className="d-flex justify-content-center gap-3">
+              <div className="d-flex justify-content-center gap-3 mb-3">
                 <div className="iq-newsfeed-img">
                   <Image
                     src={img2}
@@ -66,7 +67,7 @@ export default function Activity() {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center gap-3">
+              <div className="d-flex justify-content-center gap-3  mb-3">
                 <div className="iq-newsfeed-img">
                   <Image
                     src={img4}
@@ -84,33 +85,13 @@ export default function Activity() {
                   <div>
                     <Button variant="primary  btn-sm btn-icon rounded-pill">
                       <span className="btn-inner">
-                        <svg
-                          width="32"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            opacity="0.4"
-                            d="M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z"
-                            fill="currentColor"
-                          ></path>
-                          <path
-                            d="M9.5 15.0156C5.45422 15.0156 2 15.6625 2 18.2467C2 20.83 5.4332 21.5001 9.5 21.5001C13.5448 21.5001 17 20.8533 17 18.269C17 15.6848 13.5668 15.0156 9.5 15.0156Z"
-                            fill="currentColor"
-                          ></path>
-                          <path
-                            opacity="0.4"
-                            d="M9.50023 12.5542C12.2548 12.5542 14.4629 10.3177 14.4629 7.52761C14.4629 4.73754 12.2548 2.5 9.50023 2.5C6.74566 2.5 4.5376 4.73754 4.5376 7.52761C4.5376 10.3177 6.74566 12.5542 9.50023 12.5542Z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
+                        {icons.add}
                       </span>
                     </Button>
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center gap-3">
+              <div className="d-flex justify-content-center gap-3  mb-3">
                 <div className="iq-newsfeed-img">
                   <Image
                     src={img6}
@@ -134,7 +115,7 @@ export default function Activity() {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center gap-3">
+              <div className="d-flex justify-content-center gap-3  mb-3">
                 <div className="iq-newsfeed-img">
                   <Image
                     src={img8}
@@ -152,27 +133,7 @@ export default function Activity() {
                   <div>
                     <Button variant="primary  btn-sm btn-icon rounded-pill">
                       <span className="btn-inner">
-                        <svg
-                          width="32"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            opacity="0.4"
-                            d="M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z"
-                            fill="currentColor"
-                          ></path>
-                          <path
-                            d="M9.5 15.0156C5.45422 15.0156 2 15.6625 2 18.2467C2 20.83 5.4332 21.5001 9.5 21.5001C13.5448 21.5001 17 20.8533 17 18.269C17 15.6848 13.5668 15.0156 9.5 15.0156Z"
-                            fill="currentColor"
-                          ></path>
-                          <path
-                            opacity="0.4"
-                            d="M9.50023 12.5542C12.2548 12.5542 14.4629 10.3177 14.4629 7.52761C14.4629 4.73754 12.2548 2.5 9.50023 2.5C6.74566 2.5 4.5376 4.73754 4.5376 7.52761C4.5376 10.3177 6.74566 12.5542 9.50023 12.5542Z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
+                        {icons.add}
                       </span>
                     </Button>
                   </div>

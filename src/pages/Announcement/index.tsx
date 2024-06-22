@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-
-
 import { Row, Col } from "react-bootstrap";
 
 import Activity from "../../components/Activity";
