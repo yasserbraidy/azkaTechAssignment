@@ -51,10 +51,10 @@ export default function useDashboardHooks() {
     }
 
     function getRandomDateIn2024() {
-        const start = new Date(2024, 0, 1); // January 1, 2024
-        const end = new Date(2024, 11, 31); // December 31, 2024
+        const start = new Date(2024, 0, 1);
+        const end = new Date(2024, 11, 31);
         const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-        return date.toISOString(); // Convert to ISO string
+        return date.toISOString();
     }
     useEffect(() => {
         fetchData();
@@ -89,6 +89,6 @@ export default function useDashboardHooks() {
     }, [users, posts, comments]);
 
     return {
-        userPostCounts, loader, fetchingError, totalComments, totalPosts, totalUsers, totalImpressions, posts
+        userPostCounts, loader, fetchingError, totalComments, totalPosts, totalUsers, totalImpressions, posts, fetchData
     }
 }

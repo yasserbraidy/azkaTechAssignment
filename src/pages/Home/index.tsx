@@ -29,6 +29,7 @@ const Home = memo((props) => {
       totalUsers,
       totalImpressions,
       posts,
+      fetchData,
     } = useDashboardHooks();
     return (
         <>
@@ -36,7 +37,7 @@ const Home = memo((props) => {
         {!loader && fetchingError.isError && <ErrorAlert {...fetchingError} />}
             {!loader && !fetchingError.isError && (
                 <>
-                    <HomeHeader />
+                    <HomeHeader refreshBtn={fetchData}  />
 
                     <Row>
                         <Impressions impressions={totalImpressions}/>

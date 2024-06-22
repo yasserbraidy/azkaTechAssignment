@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { useState } from "react";
 
 interface IHomeHeader{
-
+refreshBtn: () => void
 }
 
 export default function HomeHeader(props: IHomeHeader) {
@@ -56,7 +56,7 @@ export default function HomeHeader(props: IHomeHeader) {
                         />
                         </div>
                         
-                        <Button type="button" className="primary">
+                        <Button type="button" className="primary" onClick={props.refreshBtn}>
                             Refresh
                         </Button>
                 </div>
