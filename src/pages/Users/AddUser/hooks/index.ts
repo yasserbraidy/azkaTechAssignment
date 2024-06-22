@@ -11,11 +11,20 @@ export default function useAddUserHooks() {
     const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
     
+    
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const { name, value } = event.target;
+        setUser({
+        ...user,
+        [name]: value,
+        });
+    };
+
     //validation function
     function Validation(userData: Partial<IUser>) {
         try {
             if (!userData.name || !userData.username || !userData.email || !userData.phone) {
-            throw new Error("Please enter company name")
+            throw new Error("Please enter the needed information")
         }
         setValidated(false);
             return true;
@@ -34,20 +43,12 @@ export default function useAddUserHooks() {
 
         try {
             setLoader(true);
-
-
-            setTimeout(() => {
-            // After 1.5 seconds, show the SweetAlert
                 showSweetAlert(
                     "Notice",
                     "There is no actual API to perform this function, but this page has been created for the purpose of UI demonstration, data validation, and handling user addition on the frontend.",
                     "success"
                 );
-                setLoader(false);
-            }, 1500);
 
-            navigate(`/users/view-all`);
-        
         } catch (error: any) {
             handlePostError(error);
         } finally {
@@ -55,7 +56,8 @@ export default function useAddUserHooks() {
         }
     };
 
+
     return {
-        validated, handleSubmit, loader, validationError
+        validated, handleSubmit, loader, validationError, user, handleInputChange
     }
 }

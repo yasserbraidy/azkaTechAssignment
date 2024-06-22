@@ -7,7 +7,7 @@ export default function TextAriaInput(props: ITextArea) {
         className,
         value,
         id,
-        rows = 5,
+        rows = 2,
         name,
         onChange,
         placeholder
