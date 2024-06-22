@@ -48,38 +48,50 @@ export default function Explore(props: IExplore) {
               <Link
                 onClick={() => imageOnSlide(1)}
                 to="#"
-                className="iq-item-col-end rounded"
+                className="iq-item-col-end rounded mb-2"
               >
                 <Image className="img-fluid rounded" src={img11} alt="grid-1" />
               </Link>
-              <Link
-                onClick={() => imageOnSlide(2)}
-                to="#"
-                className="iq-item-row-end rounded"
-              >
-                <Image className="img-fluid rounded" src={img12} alt="grid-2" />
-              </Link>
-              <Link
-                onClick={() => imageOnSlide(3)}
-                to="#"
-                className="iq-item-row-end rounded"
-              >
-                <Image className="img-fluid rounded" src={img13} alt="grid-3" />
-              </Link>
-              <Link
+              <div className="d-flex justify-content-between mb-2">
+                <Link
+                  onClick={() => imageOnSlide(2)}
+                  to="#"
+                  className="iq-item-row-end rounded me-1"
+                >
+                  <Image
+                    className="img-fluid rounded"
+                    src={img12}
+                    alt="grid-2"
+                  />
+                </Link>
+                <Link
+                  onClick={() => imageOnSlide(3)}
+                  to="#"
+                  className="iq-item-row-end rounded ms-1"
+                >
+                  <Image
+                    className="img-fluid rounded"
+                    src={img13}
+                    alt="grid-3"
+                  />
+                </Link>
+              </div>
+              <div className="d-flex justify-content-between mb-2">
+                <Link
                 onClick={() => imageOnSlide(4)}
                 to="#"
-                className="iq-item-row-end rounded"
+                className="iq-item-row-end rounded me-1"
               >
                 <Image className="img-fluid rounded" src={img14} alt="grid-4" />
               </Link>
               <Link
                 onClick={() => imageOnSlide(5)}
                 to="#"
-                className="iq-item-row-end rounded"
+                className="iq-item-row-end rounded ms-1"
               >
                 <Image className="img-fluid rounded" src={img15} alt="grid-5" />
-              </Link>
+              </Link></div>
+
               <Link
                 onClick={() => imageOnSlide(6)}
                 to="#"
