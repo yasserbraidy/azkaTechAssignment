@@ -1,5 +1,5 @@
-import {memo,Fragment} from 'react'
-import { Row,Col,Dropdown,Button, Table, Card, Tab, Nav} from 'react-bootstrap'
+import {memo} from 'react'
+import { Row,Col,Dropdown, Table, Card, Tab, Nav} from 'react-bootstrap'
 
 import { Link } from 'react-router-dom'
 
@@ -10,13 +10,6 @@ import Chart from "react-apexcharts";
 import CustomToggle from '../../components/Dropdown';
 
 
-//img
-import table1 from "../../assets/images/table/1.png";
-import table2 from "../../assets/images/table/2.png";
-import table3 from "../../assets/images/table/3.png";
-import table4 from "../../assets/images/table/4.png";
-import table5 from "../../assets/images/table/5.png";
-
 
 // Redux Selector / Action
 import { useSelector } from 'react-redux';
@@ -24,17 +17,12 @@ import { useSelector } from 'react-redux';
 // Import selectors & action from setting store
 import * as SettingSelector from '../../store/setting/selectors'
 
-//Count-up
-import CountUp from 'react-countup';
-
-//select
-import { chart2 } from "./Data";
-import SelectInput from '../../components/SelectInput';
 import HomeHeader from '../../components/HomeHeader';
 import Impressions from '../../components/Impressions';
 import PostCountCard from '../../components/PostsCountCard';
 import CommentCountCard from '../../components/CommentCountCard';
 import UsersCard from '../../components/UsersCard';
+import CommentsChart from '../../components/CommentsChart';
 
 const Home = memo((props) => {
     useSelector(SettingSelector.theme_color)
@@ -53,41 +41,8 @@ const Home = memo((props) => {
                 </Row>
             </Col>
             <UsersCard />
-                
-          <Col lg="6" md="12">
-            <Card className="card-block card-stretch card-height">
-              <Card.Header>
-                <div className=" d-flex justify-content-between  flex-wrap">
-                  <h4 className="card-title">Net Volumes From Sales</h4>
-                  <Dropdown>
-                    <Dropdown.Toggle
-                      as={CustomToggle}
-                      href="#"
-                      variant="text-secondary dropdown-toggle"
-                      size="sm"
-                      id="dropdownMenuButton1"
-                    >
-                      This year
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#">Year</Dropdown.Item>
-                      <Dropdown.Item href="#">Month</Dropdown.Item>
-                      <Dropdown.Item href="#">Week</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-              </Card.Header>
-              <Card.Body>
-                <Chart
-                  options={chart2.options}
-                  series={chart2.series}
-                  type="line"
-                  height="100%"
-                  className="dashboard-line-chart"
-                ></Chart>
-              </Card.Body>
-            </Card>
-          </Col>
+            <CommentsChart />
+            
           <Col lg="6" md="12">
             <Card className="card-block">
               <Tab.Container defaultActiveKey="first">
