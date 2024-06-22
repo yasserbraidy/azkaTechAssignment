@@ -1,9 +1,5 @@
-import { Card } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
+import { Card, Button, Col, Row } from "react-bootstrap";
 import useAddUserHooks from "./hooks";
-import Loader3 from "../../../components/Loader";
 import CustomForm from "../../../components/CustomForm";
 import FloatingTextInput from "../../../components/Inputs/FloatingText";
 import TextAriaInput from "../../../components/Inputs/TextArea";

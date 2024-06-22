@@ -7,6 +7,7 @@ import authRoutes from "./auth";
 import errorsRoutes from "./errors";
 import TestPage from "../pages/Test";
 import usersRoutes from "./users";
+import announcementRoutes from "./Announecement";
 
 const Home = lazy(() => import("../pages/Home"));
 
@@ -14,6 +15,10 @@ const Home = lazy(() => import("../pages/Home"));
 
     //Users
     ...usersRoutes,
+
+    //Announcement
+    ...announcementRoutes,
+
     //Test
     ...testRoutes,
   ];

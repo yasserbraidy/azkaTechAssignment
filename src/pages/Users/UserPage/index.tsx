@@ -1,7 +1,7 @@
 import { memo} from "react";
 
 //react-bootstrap
-import { Row, Col, Image, Form, Nav, Dropdown, Tab, Card } from "react-bootstrap";
+import { Row, Col, Image, Nav, Tab, Card } from "react-bootstrap";
 
 
 //router
