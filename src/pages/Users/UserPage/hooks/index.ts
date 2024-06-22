@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import IUser from "../../../../services/entities/User";
 import { IFetchingErrorAlert } from "../../../../components/Error/interface";
-import { getUser } from "../../data";
+import { getAllPosts, getPostsByUserId, getUser } from "../../data";
 import { processApiResponse } from "../../../../services/api/response";
 import { handleFetchingError } from "../../../../utilities/global";
 import IPost from "../../../../services/entities/IPost";
@@ -10,13 +10,15 @@ export default function useProfileHooks(id: number){
     const [user, setUser] = useState<Partial<IUser>>();
     const [posts, setPosts] = useState<Array<IPost>>([]);
 
-    const [loader, setLoader] = useState<boolean>(false);
+    const [postLoader, setPostLoader] = useState<boolean>(false);
+    const [userLoader, setUserLoader] = useState<boolean>(false);
+    const [loader, setLoader] = useState<boolean>(true);
     const [fetchingError, setFetchingError] = useState<IFetchingErrorAlert>({ isError: false });
     
 
     async function fetchUser() {
         try {
-            setLoader(true);
+            setUserLoader(true);
             setUser({});
             const user = await getUser(id);
             const result = processApiResponse(user, 'fetchOne', 'user');
@@ -26,23 +28,23 @@ export default function useProfileHooks(id: number){
         } catch (error: any) {
             handleFetchingError(error, setFetchingError);
         } finally {
-            setLoader(false);
+            setUserLoader(false);
         }
     }
 
     async function fetchPosts() {
         try {
-            setLoader(true);
+            setPostLoader(true);
             setPosts([]);
-            const userList = await getAllPosts();
-            const result = processApiResponse(userList, 'fetchAll', 'users');
+            const userList = await getPostsByUserId(id);
+            const result = processApiResponse(userList, 'fetchAll', 'posts');
 
             if (!result.isError) setPosts(result.data as Array<IPost>);
             
         } catch (error: any) {
             handleFetchingError(error, setFetchingError);
         } finally {
-            setLoader(false);
+            setPostLoader(false);
         }
     }
     useEffect(() => {
@@ -50,6 +52,12 @@ export default function useProfileHooks(id: number){
         fetchPosts();
     }, []);
 
+    useEffect(() => {
+        setLoader(true)
+        if (!userLoader && !postLoader)
+            setLoader(false);
+
+    }, [postLoader, userLoader]);
 
     return {
         loader, user, fetchingError, posts
