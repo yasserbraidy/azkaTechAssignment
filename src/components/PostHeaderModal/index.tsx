@@ -3,11 +3,20 @@ import { Row, Col, Image, Form, Button } from "react-bootstrap";
 
 import img1 from "../../assets/modules/social/images/avatar/01.png";
 import { icons } from "../Icons";
+import { showSweetAlert } from "../../utilities/global";
 
 interface IPostHeaderModal{
-
+    onClick: () => void
 }
-export default function PostHeaderModal (props: IPostHeaderModal){
+export default function PostHeaderModal(props: IPostHeaderModal) {
+    function onClck() {
+        showSweetAlert(
+            "Notice",
+            "There is no actual API to perform this function, but this page has been created for the purpose of UI demonstration, data validation, and handling user addition on the frontend.",
+            "success"
+        );
+        props.onClick();
+    }
     return (
         <>
         <div className="d-flex align-items-center border-bottom pb-3 mb-4">
@@ -85,7 +94,7 @@ export default function PostHeaderModal (props: IPostHeaderModal){
                 </Col>
                 
             </Row>
-            <Button type="submit" variant="primary d-block w-100 mt-3">
+            <Button type="submit" variant="primary d-block w-100 mt-3" onClick={onClck}>
                 Post
             </Button>
         </>

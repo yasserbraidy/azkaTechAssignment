@@ -22,7 +22,7 @@ export default function CreatePostModal(props: ICreatePostModal) {
         </Modal.Header>
         <Modal.Body>
         <PostHeaderModal 
-            // show={props.show} onclick={props.handleClose} 
+            onClick={props.handleClose} 
         />
         </Modal.Body>
       </Modal>
