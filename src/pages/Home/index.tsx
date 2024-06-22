@@ -17,6 +17,7 @@ import UserFilterTable from '../../components/UserFilterTable';
 import useDashboardHooks from './Hooks';
 import Loader3 from '../../components/Loader';
 import ErrorAlert from '../../components/Error';
+import { motion } from "framer-motion";
 
 const Home = memo((props) => {
     useSelector(SettingSelector.theme_color)
@@ -32,29 +33,30 @@ const Home = memo((props) => {
       fetchData,
     } = useDashboardHooks();
     return (
-        <>
-                    {loader && <Loader3 />}
+      <>
+        {loader && <Loader3 />}
         {!loader && fetchingError.isError && <ErrorAlert {...fetchingError} />}
-            {!loader && !fetchingError.isError && (
-                <>
-                    <HomeHeader refreshBtn={fetchData}  />
+        {!loader && !fetchingError.isError && (
+          <>
+            <HomeHeader refreshBtn={fetchData} />
 
-                    <Row>
-                        <Impressions impressions={totalImpressions}/>
+            <Row>
+              <Impressions impressions={totalImpressions} />
 
-                        <Col lg="3" md="6">
-                            <Row>
-                                <PostCountCard count= {totalPosts} />
-                                <CommentCountCard count={totalComments} />
-                            </Row>
-                        </Col>
-                        <UsersCard count={totalUsers} />
-                        <CommentsChart posts={posts} />
-                        <UserFilterTable filters={userPostCounts} />
-                    </Row>
-                </>
-            )}
-        </>
+              <Col lg="3" md="6">
+                <Row>
+                  <PostCountCard count={totalPosts} />
+                  <CommentCountCard count={totalComments} />
+                </Row>
+              </Col>
+              <UsersCard count={totalUsers} />
+              <CommentsChart posts={posts} />
+              <UserFilterTable filters={userPostCounts} />
+            </Row>
+            
+          </>
+        )}
+      </>
     );
     }
 )

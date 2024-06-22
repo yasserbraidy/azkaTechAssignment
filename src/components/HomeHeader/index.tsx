@@ -58,7 +58,8 @@ export default function HomeHeader(props: IHomeHeader) {
                         
                         <Button type="button" className="primary" onClick={props.refreshBtn}>
                             Refresh
-                        </Button>
+                    </Button>
+                    
                 </div>
             </div>
         </>

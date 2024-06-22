@@ -9,6 +9,7 @@ import table2 from "../../assets/images/table/2.png";
 import table3 from "../../assets/images/table/3.png";
 import table4 from "../../assets/images/table/4.png";
 import table5 from "../../assets/images/table/5.png";
+import AnimationCard from "../anomationCard";
 interface IUsersCard {
   count: number;
 }
@@ -101,6 +102,9 @@ export default function UsersCard(props: IUsersCard) {
                                     </div>
                                 </div>
                             </Col>
+                        </Row>
+                        <Row style={{height: "160px"}} className="border border-3">
+                            <AnimationCard />
                         </Row>
                     </Card.Body>
                 </Card>
