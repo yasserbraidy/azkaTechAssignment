@@ -19,7 +19,7 @@ const usersMenu: AccordionDTO = {
     },
     {
       title: "Add User",
-      link: "users/register",
+      link: "users/add",
       overlayTriggerTitle: "A",
       tooltip: "Add New User",
       requiredPermissions: ["add user"],
