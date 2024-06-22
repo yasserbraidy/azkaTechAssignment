@@ -8,8 +8,10 @@ import img14 from "../../assets/modules/social/images/newsfeed/09.png";
 import img15 from "../../assets/modules/social/images/newsfeed/10.png";
 import img20 from "../../assets/modules/social/images/newsfeed/02.png";
 import { useState } from "react";
-
-export default function Explore() {
+interface IExplore {
+    imageOnSlide: (nb: number) => void
+}
+export default function Explore(props: IExplore) {
     const [imageController, setImageController] = useState({
         toggler: false,
         slide: 1,
