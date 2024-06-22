@@ -20,31 +20,42 @@ export default function useDashboardHooks() {
     const [totalUsers, setTotalUsers] = useState<number>(0);
     const [totalImpressions, setTotalImpressions] = useState<number>(0);
     async function fetchData() {
-            try {
-                setLoader(true);
-                setUsers([]);
-                setPosts([]);
-                setComments([]);
+        try {
+            setLoader(true);
+            setUsers([]);
+            setPosts([]);
+            setComments([]);
 
-                const userList = await getAllUsers();
-                const userResult = processApiResponse(userList, 'fetchAll', 'users');
-                if (!userResult.isError) setUsers(userResult.data as Array<IUser>);
+            const userList = await getAllUsers();
+            const userResult = processApiResponse(userList, 'fetchAll', 'users');
+            if (!userResult.isError) setUsers(userResult.data as Array<IUser>);
 
-                const postList = await getAllPosts();
-                const postResult = processApiResponse(postList, 'fetchAll', 'posts');
-                if (!postResult.isError) setPosts(postResult.data as Array<IPost>);
-
-                const commentList = await getAllComments();
-                const commentResult = processApiResponse(commentList, 'fetchAll', 'comments');
-                if (!commentResult.isError) setComments(commentResult.data as Array<IComment>);
-
-            } catch (error: any) {
-                handleFetchingError(error, setFetchingError);
-            } finally {
-                setLoader(false);
+            const postList = await getAllPosts();
+            const postResult = processApiResponse(postList, 'fetchAll', 'posts');
+            if (!postResult.isError) {
+                const postsWithDates = (postResult.data as Array<IPost>).map(post => ({
+                    ...post,
+                    date: getRandomDateIn2024()
+                }));
+                setPosts(postsWithDates);
             }
+            const commentList = await getAllComments();
+            const commentResult = processApiResponse(commentList, 'fetchAll', 'comments');
+            if (!commentResult.isError) setComments(commentResult.data as Array<IComment>);
+            console.log(posts)
+        } catch (error: any) {
+            handleFetchingError(error, setFetchingError);
+        } finally {
+            setLoader(false);
         }
+    }
 
+    function getRandomDateIn2024() {
+        const start = new Date(2024, 0, 1); // January 1, 2024
+        const end = new Date(2024, 11, 31); // December 31, 2024
+        const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        return date.toISOString(); // Convert to ISO string
+    }
     useEffect(() => {
         fetchData();
     }, []);
@@ -78,6 +89,6 @@ export default function useDashboardHooks() {
     }, [users, posts, comments]);
 
     return {
-        userPostCounts, loader, fetchingError, totalComments, totalPosts, totalUsers, totalImpressions
+        userPostCounts, loader, fetchingError, totalComments, totalPosts, totalUsers, totalImpressions, posts
     }
 }

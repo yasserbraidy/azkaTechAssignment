@@ -6,6 +6,7 @@ import { Tab } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { icons } from "../Icons";
 import IUserPostCount from "../../services/entities/UserPostCount";
+import CountUp from "react-countup";
 interface IUserFilterTable {
   filters: IUserPostCount[];
 }
@@ -66,7 +67,15 @@ export default function UserFilterTable(props: IUserFilterTable) {
                                     <tr key={index}>
                                         <td>
                                             <div className="d-flex align-items-center">
-                                                <h6 className="mb-0">{userPostCount.postCount} Posts</h6>
+                                                <h6 className="mb-0">
+                                                    <CountUp
+                                                        start={0}
+                                                        end={userPostCount.postCount || 0}
+                                                        duration={4}
+                                                        useEasing={true}
+                                                        separator=","
+                                                    /> Posts
+                                                </h6>
                                             </div>
                                         </td>
                                         <td className="text-primary">{userPostCount.userName}</td>
@@ -99,7 +108,15 @@ export default function UserFilterTable(props: IUserFilterTable) {
                                     <tr key={index}>
                                         <td>
                                             <div className="d-flex align-items-center">
-                                                <h6 className="mb-0">{userPostCount.commentCount} Comments</h6>
+                                                <h6 className="mb-0">
+                                                    <CountUp
+                                                        start={0}
+                                                        end={userPostCount.commentCount || 0}
+                                                        duration={5}
+                                                        useEasing={true}
+                                                        separator=","
+                                                    /> Comments
+                                                </h6>
                                             </div>
                                         </td>
                                         <td className="text-primary">{userPostCount.userName}</td>

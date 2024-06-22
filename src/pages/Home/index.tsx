@@ -28,6 +28,7 @@ const Home = memo((props) => {
       totalPosts,
       totalUsers,
       totalImpressions,
+      posts,
     } = useDashboardHooks();
     return (
         <>
@@ -47,7 +48,7 @@ const Home = memo((props) => {
                             </Row>
                         </Col>
                         <UsersCard count={totalUsers} />
-                        <CommentsChart />
+                        <CommentsChart posts={posts} />
                         <UserFilterTable filters={userPostCounts} />
                     </Row>
                 </>
